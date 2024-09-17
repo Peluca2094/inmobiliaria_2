@@ -1,0 +1,68 @@
+#pragma once
+
+#include <string>
+
+using namespace std;
+
+
+class casa{
+
+protected:
+int _codigo;
+char _calle[50];
+char _numero[6];
+char _localidades[50];
+int _antiguedad;
+float _superficie_total;
+float _superficie_cubierta;
+int _habitaciones;
+
+public:
+ casa(int,const char *calle,const char *numero,const char *localidades,int,float,float,int);
+
+void set_casa();
+
+string mostar_informacion();
+
+
+};
+
+
+class precio: public casa{
+
+public:
+    float _precio_venta;
+    float _precio_alquiler;
+
+public:
+
+precio(int codigo, const char *calle, const char *numero, const char *localidades, int antiguedad, float superficie_total, float superficie_cubierta, int habitaciones, float precio_venta, float precio_alquiler);
+
+     void set_precio_venta(float);
+     void set_precio_alquiler(float);
+
+     float get_precio_2();
+
+     float get_precio();
+
+     string mostrar_informacion_3();
+
+};
+
+
+class duenio{
+protected:
+char _apellido [50];
+char _nombre[50];
+char _dni[12];
+char _celular[15];
+
+
+public:
+
+duenio(const char*apellido,const char *nombre,const char *dni,const char *celular);
+
+string mostrar_informacion_4();
+
+
+};
