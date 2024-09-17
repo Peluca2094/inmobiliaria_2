@@ -1,0 +1,42 @@
+#include <iostream>
+
+#include "casa.h"
+using namespace std;
+
+
+int main()
+{
+    float precio_venta,precio_alquiler;
+
+  ///  casa   objeto_0(100,"liquidambar","2767","tigre",10,10.4,9.5,3);
+
+    int opcion;
+    cout<<"     elija una opcion"<<endl;
+    cout<<"     1_casa"<<endl;
+
+    cout<<"     2_salir"<<endl;
+
+    cin>>opcion;
+
+  switch(opcion){
+
+case 1:
+
+
+    precio   objeto_1(100,"liquidambar","2767","tigre",10,10.4,9.5,3,10,1);
+    duenio   objeto_duenio("gomez","matias","35645377","1533153864");
+
+   cout<<"casa:"<<endl;
+   cout<<objeto_1.mostrar_informacion_3()<<endl;
+   cout<<"duenio:"<<endl;
+   cout<<objeto_duenio.mostrar_informacion_4()<<endl;
+
+    break;
+    }
+
+
+
+
+
+    return 0;
+}
