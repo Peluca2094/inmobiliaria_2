@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdio> // Para usar FILE, fopen, fread, fwrite, fclose
 
 #include "casa.h"
 using namespace std;
@@ -6,15 +7,15 @@ using namespace std;
 
 int main()
 {
-    float precio_venta,precio_alquiler;
 
-  ///  casa   objeto_0(100,"liquidambar","2767","tigre",10,10.4,9.5,3);
+   precio   objeto_precio(100,"liquidambar","2767","tigre",10,10.4,9.5,3,10,1);
+    duenio   objeto_duenio("gomez","matias","35645377","1533153864");
 
     int opcion;
     cout<<"     elija una opcion"<<endl;
     cout<<"     1_casa"<<endl;
 
-    cout<<"     2_salir"<<endl;
+    cout<<"     2_mostrar"<<endl;
 
     cin>>opcion;
 
@@ -22,21 +23,41 @@ int main()
 
 case 1:
 
+FILE *pFile;
+  pFile=fopen("inmobiliaria.datos","ab");
+  fwrite(&objeto_precio,sizeof(objeto_precio),1,pFile);
+    fwrite(&objeto_duenio,sizeof(objeto_duenio),1,pFile);
 
-    precio   objeto_1(100,"liquidambar","2767","tigre",10,10.4,9.5,3,10,1);
-    duenio   objeto_duenio("gomez","matias","35645377","1533153864");
+  fclose(pFile);
+
+
 
    cout<<"casa:"<<endl;
-   cout<<objeto_1.mostrar_informacion_3()<<endl;
+   cout<<objeto_precio.mostrar_informacion_3()<<endl;
    cout<<"duenio:"<<endl;
    cout<<objeto_duenio.mostrar_informacion_4()<<endl;
 
+
+
     break;
+
+case 2:
+
+ pFile = fopen("inmobiliaria.datos","rb");
+
+
+
+
+
+    cout<<fread(&objeto_precio,sizeof(precio),1,pFile)<<endl;
+
+    cout<<fread(&objeto_duenio,sizeof(duenio),1,pFile)<<endl;
+
+
+ fclose(pFile);
+
+
+
+
+
     }
-
-
-
-
-
-    return 0;
-}
